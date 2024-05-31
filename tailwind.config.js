@@ -4,6 +4,10 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    // require('tailwind-scrollbar'),
+    // require('tailwind-scrollbar')({ nocompatible: true }),
+    require('tailwind-scrollbar')({ preferredStrategy: 'pseudoelements' }),
+  ],
 }
 

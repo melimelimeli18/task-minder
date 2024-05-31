@@ -1,0 +1,6 @@
+HEADING = font-bold text-2xl
+SUB-HEADING = text-lg
+SUB-HEADING BOLD = font-bold text-lg 
+TEXT = text-base
+TEXT BOLD = font-bold text-base
+MINI TEXT = text-xs

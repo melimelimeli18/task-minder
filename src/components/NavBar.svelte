@@ -14,7 +14,7 @@
 </script>
 
 
-<nav class="navbar-container fixed bottom-[-1rem] flex md:space-x-4 w-full justify-between content-center border-solid border-2 border-[#9940FA] bg-white">
+<nav class="navbar-container fixed bottom-0 flex md:space-x-4 w-full justify-between content-center border-solid border-2 border-[#9940FA] bg-white z-10">
     <!-- HOME -->
     <a href="https://" class="flex">
         <div class="home flex flex-col px-4 my-4 text-center md:flex-row">

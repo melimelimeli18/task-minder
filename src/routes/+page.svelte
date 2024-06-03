@@ -91,7 +91,7 @@
     </h2>
 
     <!-- Most Urgent Task -->
-    <h2 class="font-bold text-lg py-2">Most urgent task</h2>
+    <h2 class="font-bold text-lg py-2 mt-6">Most urgent task</h2>
     <div class="flex flex-1 w-screen mx-[-2rem] h-[8rem] bg-[#FBF4FE]">
         <div id="content-most-urgent-task" class="flex mx-8 overflow-x-scroll scrollbar-thumb-[#9940FA] scrollbar-track-white scrollbar-thin">
             <CardUrgentTask />
@@ -102,7 +102,7 @@
     </div>
 
     <!-- Task that due date is near -->
-    <h2 class="font-bold text-lg py-2">Tasks that due date is near!</h2>
+    <h2 class="font-bold text-lg py-2 mt-6">Tasks that due date is near!</h2>
     <div class="flex flex-1 w-screen mx-[-2rem] h-[8rem] bg-[#FBF4FE]">
         <div id="content-most-urgent-task" class="flex mx-8 overflow-x-scroll scrollbar-thumb-[#9940FA] scrollbar-track-white scrollbar-thin">
             <CardUrgentTask />
@@ -113,7 +113,7 @@
     </div>
 
     <!-- Recent Category -->
-    <h2 class="font-bold text-lg py-2">Recent category</h2>
+    <h2 class="font-bold text-lg py-2 mt-6">Recent category</h2>
     <div class="flex flex-1 w-screen mx-[-2rem] h-[8rem] bg-[#FBF4FE]">
         <div id="content-most-urgent-task" class="flex mx-8 overflow-x-scroll scrollbar-thumb-[#9940FA] scrollbar-track-white scrollbar-thin">
             <CardUrgentTask />
@@ -124,7 +124,7 @@
     </div>
 
     <!-- Recent Group -->
-    <h2 class="font-bold text-lg py-2">Recent group</h2>
+    <h2 class="font-bold text-lg py-2 mt-6">Recent group</h2>
     <div class="flex flex-1 w-screen mx-[-2rem] h-[8rem] bg-[#FBF4FE]">
         <div id="content-most-urgent-task" class="flex mx-8 overflow-x-scroll scrollbar-thumb-[#9940FA] scrollbar-track-white scrollbar-thin">
             <CardUrgentTask />
@@ -133,6 +133,10 @@
             <CardUrgentTask />
         </div>
     </div>
+    
+    <br>
+    <br>
+    <br>
 
 
 </main>

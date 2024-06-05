@@ -1,0 +1,9 @@
+HEADING = font-bold text-2xl
+SUB-HEADING = text-lg
+SUB-HEADING BOLD = font-bold text-lg 
+TEXT = text-base
+TEXT BOLD = font-bold text-base
+MINI TEXT = text-xs
+
+PROJECT :
+05/06/24 = Already add "Add New Task" but the headline doesnt align correctly, will fix this later, then commit. The headline already been fixed by moved it to under close button. changing the urgent level element from button to radio to make backend easier.

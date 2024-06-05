@@ -1,77 +1,99 @@
 <script lang="ts">
     import IconCross from "../assets/icon-cross.svelte";
-    import IconCalendar from "../assets/icon-calendar.svelte";
-  import { onMount } from "svelte";
+    import { Input, Label, Helper, Button, Checkbox, A, Datepicker } from 'flowbite-svelte';
+    import TextUrgentHigh from "./text/TextUrgentHigh.svelte"
+    import TextUrgentMedium from "./text/TextUrgentMedium.svelte";
+    import TextUrgentLow from './text/TextUrgentLow.svelte';
 
+    // INPUT FIELD
     // #task-title-input
     // #task-description-input
+    // #due-date-input
 
+    // NAME
+    // #urgent-level
+
+    // VALUE
+    // urgent-high
+    // urgent-medium
+    // urgent-low
+
+    // BUTTON
+    // add-task-button
+    // cancel-add-task-button
+
+    // close-button
 </script>
 
-<div class=" z-50 centered-axis-xy w-[75%] h-[50%] absolute bg-red-200 rounded-lg justify-center px-6 py-4 drop-shadow-lg">
+<form class=" z-50 centered-axis-xy w-content h-content absolute bg-white rounded-lg justify-center px-6 py-4 drop-shadow-lg">
 
     <!-- TOP -->
-    <div class="flex justify-between">
-        <IconCross className="size-[1.5rem]"/>
-        <div></div>
+    <button id="close-button">
+        <IconCross className="size-[1.5rem] text-gray-400 hover:text-gray-600 focus:text-gray-600"/>
+    </button>
+    <div class="flex justify-center">
         <p class="font-bold text-base">Add New Task</p>
-        <div></div>
     </div>
 
-
-    <!-- INPUT FIELD -->
-    <!-- <div class="border-2 border-[#A3A3A3] rounded-lg p-2 mt-9 focus:border-[#9940FA]">
-        <p class="text-xs">Task Title</p>
-        <p id="task-title-input">Designing a website</p>
-        <input type="text" name="Input title here" id="" 
-        class="peer block min-h-[auto] w-full rounded-lg bg-transparent px-3 py-[0.5rem] leading-[1.6] outline-none transition-all duration-200 ease-linear  focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-black dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0">
-    </div> -->
-
-    <div id="task-container" class="border-2 border-[#A3A3A3] rounded-lg p-2 mt-9 focus:border-purple-600">
-        <p class="text-xs">Task Title</p>
-    </div>
-
-    <div class="mb-6">
-        <label for="default-input" class="block mb-2 text-xs font-medium text-gray-900 dark:text-black">Task Title</label>
-        <input type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-    </div>
+    <!-- Task Title -->
+    <Label class="space-y-2 mt-9">
+        <span class="task-title">Task Title</span>
+        <Input id="task-title-input" type="text" placeholder="Type your title in here" size="md" class="input-field focus:ring-violet-500 focus:border-violet-500 "/>
+      </Label>
     
-    <div class="relative max-w-sm">
-        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-           <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-            </svg>
-        </div>
-        <input datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
-      </div>
+    <!-- Description -->
+    <Label class="space-y-2 mt-3 ">
+        <span>Description</span>
+        <Input id="task-description-input" type="text" placeholder="Type your description in here" size="md" class="focus:ring-violet-500 focus:border-violet-500"/>
+      </Label>
 
+    <!-- Due date -->
+    <Label class="space-y-2 mt-3">
+        <span>Due Date</span>
+        <input id="due-date-input" type="date" class="bg-gray-50 w-full focus:border-violet-500 border-gray-300 focus:ring-violet-500 rounded-lg text-gray-500 text-sm p-2.5">
+    </Label>
 
-    <!-- <div class="flex justify-between border-2 border-[#A3A3A3] rounded-lg p-2 mt-3">
-        <div>
-            <p class="text-xs">Due Date</p>
-            <p id="task-title-input">XXXXX</p>
-        </div>
-        <IconCalendar className="size-[1.5rem]" />
-    </div> -->
-    <div class=" border-2 border-[#A3A3A3] rounded-lg p-2 mt-3">
-        <p class="text-xs">Description</p>
-        <p id="task-description-input">Designing a website</p>
+    <hr class="fill-current border-[#9940FA] border-solid border-1 my-1 mt-5">
+
+    <p class="text-sm font-semibold mt-3">Urgent Level</p>
+
+    <div class="flex">
+        <input type="radio" id="high" name="urgent-level" value="urgent-high" class="hidden radio-button peer/high">
+        <label for="high" 
+        class="py-2 px-4 mt-3 mr-2 border-[1.5px] border-violet-500 rounded-lg bg-white peer-checked:bg-red-200 peer-hover/high:bg-red-200">
+        <TextUrgentHigh /></label>
+        
+        <!-- peer-checked: peer-hover: -->
+        <input type="radio" id="medium" name="urgent-level" value="-urgent-medium" class="hidden radio-button peer/medium">
+        <label for="medium" 
+        class="py-2 px-4 mt-3 mr-2 border-[1.5px] border-violet-500 rounded-lg bg-white peer-checked/medium:bg-orange-200 peer-hover/medium:bg-orange-200">
+        <TextUrgentMedium /></label>
+
+        <input type="radio" id="low" name="urgent-level" value="urgent-low" class="hidden radio-button peer/low">
+        <label for="low" 
+        class="py-2 px-4 mt-3 mr-2 border-[1.5px] border-violet-500 rounded-lg peer-checked/low:bg-green-200 peer-hover/low:bg-green-200">
+        <TextUrgentLow /></label>
     </div>
 
-    <hr class="fill-current border-[#9940FA] border-solid border-1 my-1 mt-3">
 
-    <!-- URGENT LEVEL -->
-
-    <p class="text-xs mt-3">Urgent Level</p>
-    <!-- <button type="button"></button> -->
-</div>
+    <div class="flex justify-end mt-9 mb-4">
+        <button id="cancel-add-task-button" class="mr-9 text-gray-400 hover:text-gray-600 focus:text-gray-600 " type="button">Cancel</button>
+        <Button id="add-task-button" type="submit" class="px-10 bg-violet-500 hover:bg-violet-800 focus:ring-violet-100">Add</Button>
+    </div>
+</form>
 
 <style>
+
 .centered-axis-xy {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
 }
+
+/* 
+.radio-button:checked + .label-button {
+    @apply bg-blue-600 border-blue-600 text-white;
+} */
 
 </style>

@@ -11,8 +11,6 @@
     import '../styles/global.css';
     import { formatDate } from '../utils/todaydate.js';
 
-
-
     let todayDateElement;
     const formattedDate = formatDate();
 

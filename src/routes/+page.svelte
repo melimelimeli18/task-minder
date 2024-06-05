@@ -2,6 +2,7 @@
     import { onMount } from 'svelte';
     import Navbar from '../components/NavBar.svelte';
     import CardUrgentTask from '../components/CardUrgentTask.svelte';
+    import CardAddNewTask from '../components/CardAddNewTask.svelte';
 
     import LogoApp from '../assets/logo-task-minder.svelte';
     import IconDiagram from '../assets/icon-diagram.svelte';
@@ -52,6 +53,8 @@
 
 </script>
 <!-- <Navbar {visible}/> -->
+
+<CardAddNewTask />
 <Navbar />
 
 <main class="mx-8">

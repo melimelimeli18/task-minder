@@ -1,9 +1,14 @@
 <script lang="ts">
+    // Icons
     import IconHome from "../assets/icon-home.svelte";
     import IconAdd from "../assets/icon-add.svelte";
     import IconCategory from "../assets/icon-category.svelte";
     import IconUser from "../assets/icon-user.svelte";
     import IconSetting from "../assets/icon-setting.svelte";
+
+    // import Home from "../routes/+page.svelte"
+
+
     
     let navElement: HTMLElement;
     export let visible: boolean = true;
@@ -58,7 +63,6 @@
         </div>
     </a>
 </nav>
-
 <style>
     nav p{
         font-size: 0.79rem;

@@ -52,7 +52,7 @@
 </script>
 <!-- <Navbar {visible}/> -->
 
-<CardAddNewTask />
+<!-- <CardAddNewTask /> -->
 <Navbar />
 
 <main class="mx-8">

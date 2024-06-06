@@ -1,35 +1,35 @@
-<script lang="ts">
+<script lang="ts">    
+    // INPUT FIELD #task-title-input //#task-description-input #due-date-input
+    // NAME #urgent-level
+    // VALUE / urgent-high / urgent-medium / urgent-low
+    // BUTTON #add-task-button #cancel-add-task-button #close-button
+
     import IconCross from "../assets/icon-cross.svelte";
-    import { Input, Label, Helper, Button, Checkbox, A, Datepicker } from 'flowbite-svelte';
+    import { Input, Modal, Label, Helper, Button, Checkbox, A, Datepicker } from 'flowbite-svelte';
     import TextUrgentHigh from "./text/TextUrgentHigh.svelte"
     import TextUrgentMedium from "./text/TextUrgentMedium.svelte";
     import TextUrgentLow from './text/TextUrgentLow.svelte';
 
-    // INPUT FIELD
-    // #task-title-input
-    // #task-description-input
-    // #due-date-input
+    import { createEventDispatcher } from 'svelte';
 
-    // NAME
-    // #urgent-level
+    const dispatch = createEventDispatcher();
 
-    // VALUE
-    // urgent-high
-    // urgent-medium
-    // urgent-low
+    function closeModal() {
+        dispatch('close');
+    }
 
-    // BUTTON
-    // add-task-button
-    // cancel-add-task-button
+    const closeButton = document.getElementById("close-button");
+    const cancelButton = document.getElementById("cancel-button");
+    const buttons = [closeButton, cancelButton];
 
-    // close-button
 </script>
 
-<form class=" z-50 centered-axis-xy w-content h-content absolute bg-white rounded-lg justify-center px-6 py-4 drop-shadow-lg">
-
+<form class=" z-50 centered-axis-xy w-content h-content relative bg-white rounded-lg justify-center px-6 py-4 drop-shadow-lg">
     <!-- TOP -->
-    <button id="close-button">
-        <IconCross className="size-[1.5rem] text-gray-400 hover:text-gray-600 focus:text-gray-600"/>
+    <button on:click={closeModal} type="button" id="close-button">
+        <label for="close-button">
+            <IconCross className="size-[1.5rem] text-gray-400 hover:text-gray-600 focus:text-gray-600"/>
+        </label>
     </button>
     <div class="flex justify-center">
         <p class="font-bold text-base">Add New Task</p>
@@ -77,23 +77,16 @@
 
 
     <div class="flex justify-end mt-9 mb-4">
-        <button id="cancel-add-task-button" class="mr-9 text-gray-400 hover:text-gray-600 focus:text-gray-600 " type="button">Cancel</button>
+        <button on:click={closeModal} id="cancel-add-task-button" class="mr-9 text-gray-400 hover:text-gray-600 focus:text-gray-600 " type="button">Cancel</button>
         <Button id="add-task-button" type="submit" class="px-10 bg-violet-500 hover:bg-violet-800 focus:ring-violet-100">Add</Button>
     </div>
 </form>
 
 <style>
-
-.centered-axis-xy {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-}
-
-/* 
-.radio-button:checked + .label-button {
-    @apply bg-blue-600 border-blue-600 text-white;
-} */
-
+    .centered-axis-xy {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
 </style>

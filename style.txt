@@ -9,4 +9,7 @@ RUN Terminal Command = npm run dev
 
 PROJECT :
 05/06/24 = Already add "Add New Task" card but the headline doesnt align correctly, will fix this later, then commit. The headline already been fixed by moved it to under close button. changing the urgent level element from button to radio to make backend easier.
+
 06/06/24 = Add "Add Task" menu modal. Add event listener on close-button and cancel-button, add dropshadow for modal
+07/06/24 = making page route
+12/06/24 = add category list

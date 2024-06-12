@@ -10,7 +10,11 @@
 
 <!-- <svg class={className} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="current"><path fill="#000" d="M5.333 4A1.333 1.333 0 0 0 4 5.333v5.334A1.333 1.333 0 0 0 5.333 12h5.334A1.333 1.333 0 0 0 12 10.667V9.333a.667.667 0 0 1 1.333 0v1.334a2.667 2.667 0 0 1-2.666 2.666H5.333a2.667 2.667 0 0 1-2.666-2.666V5.333a2.667 2.667 0 0 1 2.666-2.666h1.334a.667.667 0 1 1 0 1.333H5.333Zm4 0a.667.667 0 0 1 0-1.333h3.334a.667.667 0 0 1 .666.666v3.334a.667.667 0 0 1-1.333 0V4.943L9.805 7.139a.667.667 0 0 1-.944-.944L11.057 4H9.333Z"/></svg> -->
 
-<svg class={className} xmlns="http://www.w3.org/2000/svg" stroke="currentColor" width="16" height="16" fill="currentColor">
+<!-- <svg class={className} xmlns="http://www.w3.org/2000/svg" stroke="currentColor" width="16" height="16" fill="currentColor">
     <path stroke-linecap="round" stroke-linejoin="round" 
     stroke-width="0.3" fill="" d="M5.333 4A1.333 1.333 0 0 0 4 5.333v5.334A1.333 1.333 0 0 0 5.333 12h5.334A1.333 1.333 0 0 0 12 10.667V9.333a.667.667 0 0 1 1.333 0v1.334a2.667 2.667 0 0 1-2.666 2.666H5.333a2.667 2.667 0 0 1-2.666-2.666V5.333a2.667 2.667 0 0 1 2.666-2.666h1.334a.667.667 0 1 1 0 1.333H5.333Zm4 0a.667.667 0 0 1 0-1.333h3.334a.667.667 0 0 1 .666.666v3.334a.667.667 0 0 1-1.333 0V4.943L9.805 7.139a.667.667 0 0 1-.944-.944L11.057 4H9.333Z"/>
-</svg>
+</svg> -->
+
+<svg class={className} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"/>
+  </svg>  

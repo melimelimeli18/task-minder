@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
+
     import Navbar from '../components/NavBar.svelte';
     import CardUrgentTask from '../components/CardUrgentTask.svelte';
     import CardAddNewTask from '../components/CardAddNewTask.svelte';
@@ -47,12 +48,9 @@
     // #content-most-urgent-task
 
 
-
-
 </script>
-<!-- <Navbar {visible}/> -->
 
-<!-- <CardAddNewTask /> -->
+<!-- <myCategory /> -->
 <Navbar />
 
 <main class="mx-8">

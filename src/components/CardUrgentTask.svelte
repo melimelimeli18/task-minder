@@ -21,7 +21,7 @@ import IconOpen from "../assets/icon-open.svelte"
                 <div id="urgent-level" class="w-3 h-3 bg-green-500 rounded-full mt-[2px]"></div>
                 <p id="urgent-text" class="text-xs ml-2 text-green-600 ">High</p>
             </div>
-            <IconOpen className=" text-[#A3A3A3]"/>
+            <IconOpen className=" text-[#A3A3A3] size-4"/>
         </div>
 
     </div>

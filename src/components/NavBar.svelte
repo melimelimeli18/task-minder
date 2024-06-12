@@ -7,12 +7,18 @@
     import IconSetting from "../assets/icon-setting.svelte";
     import CardAddNewTask from "./CardAddNewTask.svelte";
     import { Button, Modal } from 'flowbite-svelte'
-    let showModal = false;
     // let formModal = false;
+    import { goto } from '$app/navigation';
+    import MyCategory from "../routes/MyCategory/+page.svelte";
+
+
+
+    let showModal = false;
 
     function closeModal() {
     showModal = false;
-  }
+    }
+  
 
 </script>
 
@@ -24,11 +30,10 @@
 
 <nav class="navbar-container fixed bottom-0 flex md:space-x-4 w-full justify-between content-center border-solid border-2 border-[#9940FA] bg-white z-10">
     <!-- HOME -->
-    <a href="https://" class="flex hover:text-[#9940FA] focus:text-[#9940FA] active:text-[#9940FA]">
+    <a href="/" class="flex hover:text-[#9940FA]  focus:text-[#9940FA] active:text-[#9940FA] box-border hover:border-t-4">
         <div class="home flex flex-col px-4 my-4 text-center md:flex-row">
-        <IconHome className="content-center place-self-center size-[2rem]"/>
-        <p class="text-style pt-1">Home</p>
-
+            <IconHome className="content-center place-self-center size-[2rem]"/>
+            <p class="text-style pt-1">Home</p>
         </div>
     </a>
 
@@ -41,7 +46,7 @@
     </button>
 
     <!-- MY CATEGORY -->
-    <a href="https://" class="flex hover:text-[#9940FA] focus:text-[#9940FA] active:text-[#9940FA]">
+    <a href="/MyCategory" class="flex hover:text-[#9940FA] focus:text-[#9940FA] active:text-[#9940FA]">
         <div class="my-category flex flex-col px-4 my-4 text-center md:flex-row">
             <IconCategory className="content-center place-self-center size-[2rem]"/>
             <p class="text-style pt-1">My Category</p>
@@ -49,7 +54,7 @@
     </a>
 
     <!-- USER -->
-    <a href="https://" class="flex hover:text-[#9940FA] focus:text-[#9940FA] active:text-[#9940FA]">
+    <a href="/User" class="flex hover:text-[#9940FA] focus:text-[#9940FA] active:text-[#9940FA]">
         <div class="user flex flex-col px-4 my-4 text-center md:flex-row">
             <IconUser className="content-center place-self-center size-[2rem] " />
             <p class="text-style pt-1">User</p>
@@ -57,7 +62,7 @@
     </a>
 
     <!-- SETTING -->
-    <a href="https://" class="logo hover:text-[#9940FA] focus:text-[#9940FA] active:text-[#9940FA]">
+    <a href="/Setting" class="logo hover:text-[#9940FA] focus:text-[#9940FA] active:text-[#9940FA]">
         <div class="setting flex flex-col px-4 my-4 text-center md:flex-row">
             <IconSetting className="justify-center place-self-center size-[2rem]" />
             <p class="text-style pt-1">Setting</p>
@@ -66,6 +71,7 @@
 </nav>
 
 <style>
+
     nav p{
         font-size: 0.79rem;
     }

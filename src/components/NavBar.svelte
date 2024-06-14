@@ -23,14 +23,13 @@
 </script>
 
 {#if showModal}
-<CardAddNewTask on:close={closeModal}/>
-<div class="z-30 absolute w-screen h-screen bg-black opacity-50"></div>
-
+    <CardAddNewTask on:close={closeModal}/>
+    <div class="z-30 absolute w-screen h-screen bg-black opacity-50"></div>
 {/if}
 
 <nav class="navbar-container fixed bottom-0 flex md:space-x-4 w-full justify-between content-center border-solid border-2 border-[#9940FA] bg-white z-10">
     <!-- HOME -->
-    <a href="/" class="flex hover:text-[#9940FA]  focus:text-[#9940FA] active:text-[#9940FA] box-border hover:border-t-4">
+    <a href="/" class="flex hover:text-[#9940FA]  focus:text-[#9940FA] active:text-[#9940FA] box-border hover:scale-105">
         <div class="home flex flex-col px-4 my-4 text-center md:flex-row">
             <IconHome className="content-center place-self-center size-[2rem]"/>
             <p class="text-style pt-1">Home</p>
@@ -38,7 +37,7 @@
     </a>
 
     <!-- ADD TASK -->
-    <button on:click={() => (showModal = true)} type="button" class="flex hover:text-[#9940FA] focus:text-[#9940FA] active:text-[#9940FA]">
+    <button on:click={() => (showModal = true)} type="button" class="flex hover:text-[#9940FA] focus:text-[#9940FA] active:text-[#9940FA] hover:scale-105">
         <div class="add-task flex flex-col px-4 my-4 text-center md:flex-row">
             <IconAdd className="content-center place-self-center size-[2rem]"/>
             <p class="text-style pt-1">Add Task</p>
@@ -46,7 +45,7 @@
     </button>
 
     <!-- MY CATEGORY -->
-    <a href="/MyCategory" class="flex hover:text-[#9940FA] focus:text-[#9940FA] active:text-[#9940FA]">
+    <a href="/MyCategory" class="flex hover:text-[#9940FA] focus:text-[#9940FA] active:text-[#9940FA] hover:scale-105">
         <div class="my-category flex flex-col px-4 my-4 text-center md:flex-row">
             <IconCategory className="content-center place-self-center size-[2rem]"/>
             <p class="text-style pt-1">My Category</p>
@@ -54,7 +53,7 @@
     </a>
 
     <!-- USER -->
-    <a href="/User" class="flex hover:text-[#9940FA] focus:text-[#9940FA] active:text-[#9940FA]">
+    <a href="/User" class="flex hover:text-[#9940FA] focus:text-[#9940FA] active:text-[#9940FA] hover:scale-105">
         <div class="user flex flex-col px-4 my-4 text-center md:flex-row">
             <IconUser className="content-center place-self-center size-[2rem] " />
             <p class="text-style pt-1">User</p>
@@ -62,7 +61,7 @@
     </a>
 
     <!-- SETTING -->
-    <a href="/Setting" class="logo hover:text-[#9940FA] focus:text-[#9940FA] active:text-[#9940FA]">
+    <a href="/Setting" class="logo hover:text-[#9940FA] focus:text-[#9940FA] active:text-[#9940FA] hover:scale-105">
         <div class="setting flex flex-col px-4 my-4 text-center md:flex-row">
             <IconSetting className="justify-center place-self-center size-[2rem]" />
             <p class="text-style pt-1">Setting</p>

@@ -13,3 +13,6 @@ PROJECT :
 06/06/24 = Add "Add Task" menu modal. Add event listener on close-button and cancel-button, add dropshadow for modal
 07/06/24 = making page route
 12/06/24 = add category list
+14/06/24 = Add Category Page with elements, add scale element on hover
+
+I should go to backend RAGHH

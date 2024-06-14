@@ -11,7 +11,7 @@ import IconOpen from "../assets/icon-open.svelte"
 
 <main>
     <!-- <div class="container absolute mx-[-2rem] h-[6rem] bg-[#FBF4FE]"> -->
-    <div class="bg-white w-[7rem] p-3 h-[5.5rem] mr-3 my-3 lign-middle rounded-lg drop-shadow-lg hover:bg-gradient-to-r from-white to-purple-100">
+    <div class="bg-white w-[7rem] p-3 h-[5.5rem] mr-3 my-3 lign-middle rounded-lg drop-shadow-lg hover:bg-gradient-to-r from-white to-purple-100 hover:scale-105 cursor-default">
         <p id="task-title" class="font-bold text-xs"> Task 1</p>
         <hr class="fill-current border-[#9940FA] border-solid border-1 my-1">
         <p id="group-name" class="text-xs truncate">Matematika Aljabar</p>

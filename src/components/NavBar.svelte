@@ -16,7 +16,7 @@
     let showModal = false;
 
     function closeModal() {
-    showModal = false;
+        showModal = false;
     }
   
 

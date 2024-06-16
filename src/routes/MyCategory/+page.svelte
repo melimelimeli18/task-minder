@@ -1,10 +1,13 @@
 <script>
     import Navbar from "../../components/NavBar.svelte";
+    import CardAddNewCategory from "../../components/CardAddNewCategory.svelte"
     import CardCategoryInfo from "../../components/CardCategoryInfo.svelte"
     import IconPlus from "../../assets/icon-plus.svelte"
-
 </script>
+<CardAddNewCategory />
 <Navbar />
+<!-- ADD MODAL -->
+
 <main class="mx-8 py-20">
 
     

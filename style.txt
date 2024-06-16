@@ -16,3 +16,5 @@ PROJECT :
 14/06/24 = Add Category Page with elements, add scale element on hover
 
 I should go to backend RAGHH
+
+16/06/24 = Add new category, replace placeholder for input

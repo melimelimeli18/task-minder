@@ -38,13 +38,13 @@
     <!-- Task Title -->
     <Label class="space-y-2 mt-9">
         <span class="task-title">Task Title</span>
-        <Input id="task-title-input" type="text" placeholder="Type your title in here" size="md" class="input-field focus:ring-violet-500 focus:border-violet-500 "/>
+        <Input id="task-title-input" type="text" placeholder="Enter task title..." size="md" class="input-field focus:ring-violet-500 focus:border-violet-500 "/>
       </Label>
     
     <!-- Description -->
     <Label class="space-y-2 mt-3 ">
         <span>Description</span>
-        <Input id="task-description-input" type="text" placeholder="Type your description in here" size="md" class="focus:ring-violet-500 focus:border-violet-500"/>
+        <Input id="task-description-input" type="text" placeholder="Describe the task..." size="md" class="focus:ring-violet-500 focus:border-violet-500"/>
       </Label>
 
     <!-- Due date -->
@@ -60,19 +60,22 @@
     <div class="flex">
         <input type="radio" id="high" name="urgent-level" value="urgent-high" class="hidden radio-button peer/high">
         <label for="high" 
-        class="py-2 px-4 mt-3 mr-2 border-[1.5px] border-violet-500 rounded-lg bg-white peer-checked:bg-red-200 peer-hover/high:bg-red-200">
-        <TextUrgentHigh /></label>
+        class="py-2 px-4 mt-3 mr-2 border-[1.5px] border-violet-500 rounded-lg bg-white peer-checked/high:bg-red-200 peer-hover/high:bg-red-200">
+            <TextUrgentHigh />
+        </label>
         
         <!-- peer-checked: peer-hover: -->
         <input type="radio" id="medium" name="urgent-level" value="-urgent-medium" class="hidden radio-button peer/medium">
         <label for="medium" 
         class="py-2 px-4 mt-3 mr-2 border-[1.5px] border-violet-500 rounded-lg bg-white peer-checked/medium:bg-orange-200 peer-hover/medium:bg-orange-200">
-        <TextUrgentMedium /></label>
+            <TextUrgentMedium />
+        </label>
 
         <input type="radio" id="low" name="urgent-level" value="urgent-low" class="hidden radio-button peer/low">
         <label for="low" 
         class="py-2 px-4 mt-3 mr-2 border-[1.5px] border-violet-500 rounded-lg peer-checked/low:bg-green-200 peer-hover/low:bg-green-200">
-        <TextUrgentLow /></label>
+            <TextUrgentLow />
+        </label>
     </div>
 
 

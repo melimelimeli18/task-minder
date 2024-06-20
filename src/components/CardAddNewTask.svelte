@@ -18,9 +18,9 @@
         dispatch('close');
     }
 
-    const closeButton = document.getElementById("close-button");
-    const cancelButton = document.getElementById("cancel-button");
-    const buttons = [closeButton, cancelButton];
+    // const closeButton = document.getElementById("close-button");
+    // const cancelButton = document.getElementById("cancel-button");
+    // const buttons = [closeButton, cancelButton];
 
 </script>
 

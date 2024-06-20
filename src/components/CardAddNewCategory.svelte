@@ -8,13 +8,12 @@
     function closeModal() {
         dispatch('close');
     }
-    const closeButton = document.getElementById("close-button");
     let colors = "text-purple-500";
 </script>
 
 <form class="z-50 centered-axis-xy w-[80%] h-content absolute bg-white rounded-lg justify-center px-6 py-4 drop-shadow-lg">
-    <!-- <button on:click={closeModal} type="button" id="close-button"> -->
-    <button type="button" id="close-button">
+    <button on:click={closeModal} type="button" id="close-button">
+    <!-- <button type="button" id="close-button"> -->
         <label for="close-button">
             <IconCross className="size-[1.5rem] text-gray-400 hover:text-gray-600 focus:text-gray-600"/>
         </label>
@@ -81,13 +80,17 @@
             <input type="radio" bind:group={colors} color="black" value="text-orange-500" class="hidden peer/black" id="black">
             <label for="black" class="bg-black size-6 rounded-full items-center peer-checked/black:border-[2px] peer-checked/black:border-purple-600 peer-checked/black:border-solid hover:scale-125"></label>
           
+            <!-- white -->
+            <input type="radio" bind:group={colors} color="white" value="text-orange-500" class="hidden peer/white" id="white">
+            <label for="white" class="bg-white size-6 rounded-full items-center shadow-md drop-shadow-lg peer-checked/white:border-[2px] peer-checked/white:border-purple-600 peer-checked/white:border-solid hover:scale-125"></label>
+          
         </div>
     </Label>
 
         
     <div class="flex justify-end mt-9 mb-4">
-        <!-- <button on:click={closeModal} id="cancel-add-task-button" class="mr-9 text-gray-400 hover:text-gray-600 focus:text-gray-600 " type="button">Cancel</button> -->
-        <button id="cancel-add-task-button" class="mr-9 text-gray-400 hover:text-gray-600 focus:text-gray-600 " type="button">Cancel</button>
+        <button on:click={closeModal} id="cancel-add-category-button" class="mr-9 text-gray-400 hover:text-gray-600 focus:text-gray-600 " type="button">Cancel</button>
+        <!-- <button id="cancel-add-task-button" class="mr-9 text-gray-400 hover:text-gray-600 focus:text-gray-600 " type="button">Cancel</button> -->
         <Button id="add-task-button" type="submit" class="px-10 bg-violet-500 hover:bg-violet-800 focus:ring-violet-100">Add</Button>
     </div>
 </form>

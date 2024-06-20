@@ -18,3 +18,4 @@ PROJECT :
 I should go to backend RAGHH
 
 16/06/24 = Add new category, replace placeholder for input
+20/06/24 = Add new category modal

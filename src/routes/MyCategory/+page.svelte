@@ -1,14 +1,27 @@
-<script>
+<script lang="ts">
+    import { onMount } from 'svelte';
     import Navbar from "../../components/NavBar.svelte";
-    import CardAddNewCategory from "../../components/CardAddNewCategory.svelte"
-    import CardCategoryInfo from "../../components/CardCategoryInfo.svelte"
-    import IconPlus from "../../assets/icon-plus.svelte"
+    import CardAddNewCategory from "../../components/CardAddNewCategory.svelte";
+    import IconPlus from "../../assets/icon-plus.svelte";
+    import CardCategoryInfo from "../../components/CardCategoryInfo.svelte";
+    import type { Category } from '../../utils/interfaces.ts'; 
+    // import phpanj from '../../model/addCategory.php'
 
     let showModal = false;
     function closeModal() {
         showModal = false;
     }
 
+    let categories: Category[] = [];
+
+    function addNewCategory(newCategory: Category) {
+        categories = [...categories, newCategory];
+    }
+
+    onMount(async () => {
+        // const response = await fetch('/path/to/fetch_categories.php');
+        // categories = await response.json() as Category[];
+    });
 </script>
 
 {#if showModal}
@@ -39,18 +52,11 @@
          </button>
 
         <!-- My Category -->
-        <CardCategoryInfo />
-        <CardCategoryInfo />
-        <CardCategoryInfo />
-        <CardCategoryInfo />
-        <CardCategoryInfo />
-        <CardCategoryInfo />
-        <CardCategoryInfo />
-        <CardCategoryInfo />
-        <CardCategoryInfo />
-        <CardCategoryInfo />
-        <CardCategoryInfo />
-        <CardCategoryInfo />
+         <div id="my-category" class="flex flex-row">
+            {#each categories as category (category.category_title)}
+                <CardCategoryInfo {category} />
+            {/each}
+         </div>
     </div>
 
     <br>

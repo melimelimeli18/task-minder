@@ -3,6 +3,12 @@
     // NAME #urgent-level
     // VALUE / urgent-high / urgent-medium / urgent-low
     // BUTTON #add-task-button #cancel-add-task-button #close-button
+    document.addEventListener("DOMContentLoaded", function(event) {
+        // document.getElementById("date").innerHTML = dateGenerator(); //date generator
+        // document.getElementById("todolist").addEventListener("click", inputArea); //make the input text appear when we clicked "create new things "
+        // document.getElementById("myForm").addEventListener("submit", submit);
+        // document.getElementById("add-new-task").addEventListener('submit', handleFormSubmit);
+    });
 
     import IconCross from "../assets/icon-cross.svelte";
     import { Input, Modal, Label, Helper, Button, Checkbox, A, Datepicker } from 'flowbite-svelte';
@@ -11,6 +17,8 @@
     import TextUrgentLow from './text/TextUrgentLow.svelte';
 
     import { createEventDispatcher } from 'svelte';
+    import { onMount } from 'svelte';
+    // import php from "../model/newTask.php"
 
     const dispatch = createEventDispatcher();
 
@@ -22,9 +30,24 @@
     // const cancelButton = document.getElementById("cancel-button");
     // const buttons = [closeButton, cancelButton];
 
+
+    // onMount(() => {
+    //     const NewTaskForm = document.getElementById('add-new-task');
+    //     console.log(NewTaskForm);
+    //     if (NewTaskForm) {
+    //         NewTaskForm.addEventListener('submit', handleFormSubmit);
+    //     } else {
+    //         console.error('Element with ID "today-date" not found.');
+    //     }
+    // });
+    
+    // Function to handle form submission
+    function submit(event: Event) {
+        event.preventDefault();
+    }
 </script>
 
-<form class=" z-50 centered-axis-xy w-content h-content relative bg-white rounded-lg justify-center px-6 py-4 drop-shadow-lg">
+<form action="../model/addTask.php" method="POST" id="add-new-task" class=" z-50 centered-axis-xy w-content h-content relative bg-white rounded-lg justify-center px-6 py-4 drop-shadow-lg">
     <!-- TOP -->
     <button on:click={closeModal} type="button" id="close-button">
         <label for="close-button">
@@ -38,19 +61,19 @@
     <!-- Task Title -->
     <Label class="space-y-2 mt-9">
         <span class="task-title">Task Title</span>
-        <Input id="task-title-input" type="text" placeholder="Enter task title..." size="md" class="input-field focus:ring-violet-500 focus:border-violet-500 "/>
+        <Input id="task-title-input" name="task-title" type="text" placeholder="Enter task title..." size="md" class="input-field focus:ring-violet-500 focus:border-violet-500 "/>
       </Label>
     
     <!-- Description -->
     <Label class="space-y-2 mt-3 ">
         <span>Description</span>
-        <Input id="task-description-input" type="text" placeholder="Describe the task..." size="md" class="focus:ring-violet-500 focus:border-violet-500"/>
+        <Input id="task-description-input" name="task-description" type="text" placeholder="Describe the task..." size="md" class="focus:ring-violet-500 focus:border-violet-500"/>
       </Label>
 
     <!-- Due date -->
     <Label class="space-y-2 mt-3">
         <span>Due Date</span>
-        <input id="due-date-input" type="date" class="bg-gray-50 w-full focus:border-violet-500 border-gray-300 focus:ring-violet-500 rounded-lg text-gray-500 text-sm p-2.5">
+        <input id="due-date-input" name="due-date" type="date" class="bg-gray-50 w-full focus:border-violet-500 border-gray-300 focus:ring-violet-500 rounded-lg text-gray-500 text-sm p-2.5">
     </Label>
 
     <hr class="fill-current border-[#9940FA] border-solid border-1 my-1 mt-5">
@@ -81,7 +104,7 @@
 
     <div class="flex justify-end mt-9 mb-4">
         <button on:click={closeModal} id="cancel-add-task-button" class="mr-9 text-gray-400 hover:text-gray-600 focus:text-gray-600 " type="button">Cancel</button>
-        <Button id="add-task-button" type="submit" class="px-10 bg-violet-500 hover:bg-violet-800 focus:ring-violet-100">Add</Button>
+        <Button id="add-task-button" type="submit" name="submit" value="Submit" class="px-10 bg-violet-500 hover:bg-violet-800 focus:ring-violet-100">Add</Button>
     </div>
 </form>
 

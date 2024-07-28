@@ -2,74 +2,20 @@
     import IconCross from "../assets/icon-cross.svelte";
     import { Radio, Input, Modal, Label, Helper, Button, Checkbox, A, Datepicker } from 'flowbite-svelte';
     import { createEventDispatcher } from 'svelte';
+    import type { category } from '../utils/interfaces'; 
     // import Apa from '../model/addCategory.php'
     document.addEventListener("DOMContentLoaded", function(event) {
-
     });
+
     const dispatch = createEventDispatcher();
 
     function closeModal() {
         dispatch('close');
     }
 
-    // async function handleSubmit(event: Event) {
-    //     event.preventDefault();
-    //     const form = event.target as HTMLFormElement;
-    //     const formData = new FormData(form);
 
-    //     const data = {
-    //         categoryTitle: formData.get('category-title'),
-    //         color: formData.get('color'),
-    //     };
 
-    //     try {
-    //         const response = await fetch('/src/model/addCategory.php', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify(data),
-    //         });
-
-    //         if (!response.ok) {
-    //             throw new Error(`HTTP error! status: ${response.status}`);
-    //         }
-
-    //         const result = await response.json();
-    //         console.log(result);
-
-    //         if (result.success) {
-    //             alert('Category added successfully!');
-    //         } else {
-    //             alert('Error: ' + result.message);
-    //         }
-    //     } catch (error) {
-    //         console.error('Error:', error);
-    //         alert('An error occurred while adding the category.');
-    //     }
-    // }
-
-//     async function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
-//     event.preventDefault();
-
-//     try {
-//       const response = await fetch('/model/addCategory.php', {
-//         method: 'POST',
-//         body: new FormData(event.target), // Assuming form data is in FormData format
-//       });
-
-//       if (!response.ok) {
-//         throw new Error(`Error submitting form: ${response.statusText}`);
-//       }
-
-//       // Handle successful submission (e.g., display success message)
-//       console.log('Form submitted successfully!');
-//     } catch (error) {
-//       console.error('Error:', error);
-//       // Display error message to the user
-//     }
-//   }
-
+    
     // /model/addCategory.php
     // ../../model/addCategory.php
 </script>
@@ -77,31 +23,33 @@
 <!-- <form on:submit={handleSubmit} id="form" class="z-50 centered-axis-xy w-[80%] h-content absolute bg-white rounded-lg justify-center px-6 py-4 drop-shadow-lg" autocomplete="off"> -->
 <!-- <form action="/src/model/addCategory.php" method="POST" id="form" class="z-50 centered-axis-xy w-[80%] h-content absolute bg-white rounded-lg justify-center px-6 py-4 drop-shadow-lg" autocomplete="off"> -->
 <form action="http://localhost/task-minder/src/model/addCategory.php" method="POST" id="form" class="z-50 centered-axis-xy w-[80%] h-content absolute bg-white rounded-lg justify-center px-6 py-4 drop-shadow-lg" autocomplete="off">
+    <!-- Close Button -->
     <button on:click={closeModal} type="button" id="close-button">
-    <!-- <button type="button" id="close-button"> -->
         <label for="close-button">
             <IconCross className="size-[1.5rem] text-gray-400 hover:text-gray-600 focus:text-gray-600"/>
         </label>
     </button>
+
+    <!-- Category Title Input -->
     <div class="flex justify-center">
         <p class="font-bold text-base">Add New Category</p>
     </div>
 
-    <!-- Category Title Input -->
     <Label class="space-y-2 mt-9">
         <span class="task-title">Category Title</span>
         <Input id="task-title-input" name="category-title" required type="text" value="" placeholder="Enter category name..." size="md" class="input-field focus:ring-violet-500 focus:border-violet-500 "/>
     </Label>
 
-    <hr class="fill-current border-[#9940FA] border-solid border-1 my-1 mt-5">
-
+    <hr class="fill-current border-[#9940FA] border-solid border-1 my-1 mt-5">fe
+    
+    <!-- Color Input -->
     <Label class="space-y-2 mt-3">
         <span>Color</span>
 
         <!-- BORDER DOESNT WORKING FIX THIS -->
         <div class="flex flex-wrap gap-1.5">
             <!-- pink -->
-            <input type="radio" name="color" required value="pink" class="hidden peer/pink" id="pink">
+            <input type="radio" name="color" required value="pink" class="hidden peer/pink" id="pink" checked>
             <label for="pink" class="bg-pink-300 size-6 rounded-full items-center peer-checked/pink:border-[2px] peer-checked/pink:border-purple-600 peer-checked/pink:border-solid hover:scale-125"></label>
 
             <!-- red -->
@@ -150,7 +98,8 @@
           
         </div>
     </Label>
-        
+    
+    <!-- Cancel Button, Submit Button -->    
     <div class="flex justify-end mt-9 mb-4">
         <button on:click={closeModal} id="cancel-add-category-button" class="mr-9 text-gray-400 hover:text-gray-600 focus:text-gray-600 " type="button">Cancel</button>
         <!-- <button id="cancel-add-task-button" class="mr-9 text-gray-400 hover:text-gray-600 focus:text-gray-600 " type="button">Cancel</button> -->

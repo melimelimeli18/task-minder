@@ -3,28 +3,48 @@
     import Navbar from "../../components/NavBar.svelte";
     import CardAddNewCategory from "../../components/CardAddNewCategory.svelte";
     import IconPlus from "../../assets/icon-plus.svelte";
+    import IconOpen from "../../assets/icon-open.svelte";
     import CardCategoryInfo from "../../components/CardCategoryInfo.svelte";
-    import type { Category } from '../../utils/interfaces.ts'; 
-    // import phpanj from '../../model/addCategory.php'
+    import Category from "../../components/CardCategoryInfo.svelte";
+
 
     let showModal = false;
     function closeModal() {
         showModal = false;
     }
 
+
     let categories: Category[] = [];
 
-    function addNewCategory(newCategory: Category) {
-        categories = [...categories, newCategory];
+    interface Category {
+        [x: string]: any;
+        data: {
+            category_title: string;
+            color: string;
+            task_amount: number;
+            group_amount: number;
+        };
     }
 
-    onMount(async () => {
-        // const response = await fetch('/path/to/fetch_categories.php');
-        // categories = await response.json() as Category[];
+    async function fetchData() {
+        try{
+            const response = await fetch('http://localhost/task-minder/src/model/fetchCategories.php');
+            const data: Category[] = await response.json();
+            categories = data;
+        } catch (error) {
+            console.error('Error fetching data:', error); 
+        }
+        
+    }
+    
+    onMount(() => {
+        fetchData();
     });
 </script>
 
 {#if showModal}
+    <!-- <CardAddNewCategory on:close={closeModal}/> -->
+    <!-- <CardAddNewCategory on:categoryAdded={handleCategoryAdded} /> -->
     <CardAddNewCategory on:close={closeModal}/>
     <div class="z-30 absolute w-screen h-screen bg-black opacity-50"></div>
 {/if}
@@ -34,7 +54,6 @@
 <!-- ADD MODAL -->
 
 <main class="mx-8 py-20">
-
     
     <!-- TOP PAGE -->
     <h1 class="font-bold text-2xl underline-offset-4">My Category</h1>
@@ -52,16 +71,23 @@
          </button>
 
         <!-- My Category -->
-         <div id="my-category" class="flex flex-row">
-            {#each categories as category (category.category_title)}
-                <CardCategoryInfo {category} />
+        <div id="my-category" class="flex flex-col">
+            {#each categories as category}
+                <CardCategoryInfo 
+                    categoryTitle={category.category_title}
+                    color={category.color}
+                    taskAmount={category.task_amount}
+                    groupAmount={category.group_amount} 
+                />
             {/each}
-         </div>
+        </div>
     </div>
 
     <br>
     <br>
 </main>
+
+
 
 <style>
 

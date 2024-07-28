@@ -54,7 +54,7 @@
 <Navbar />
 
 <main class="mx-8">
-    <link rel="stylesheet" href="../styles/output.css">
+    <!-- <link rel="stylesheet" href="../styles/output.css"> -->
 
     <div class="header flex flex-row justify-between">
         <LogoApp className="w-12" />

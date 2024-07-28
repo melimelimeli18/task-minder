@@ -1,29 +1,25 @@
 <script lang="ts">
     import IconOpen from "../assets/icon-open.svelte";
-    import { onMount } from 'svelte';
-    import type { Category } from '../utils/interfaces.ts'; 
-    export let category;
-    let categories: Category[] = [];
 
-    // onMount(async () => {
-    //     const response = await fetch('/path/to/fetch_categories.php');
-    //     categories = await response.json() as Category[];
-    // });
+    export let categoryTitle;
+    export let color;
+    export let taskAmount;
+    export let groupAmount;
 
 </script>
 
-<div id="category-container" class="{`bg-${category.color}-200`} bg-white flex  mt-1 mb-3 p-3 h-[5.5rem] lign-middle rounded-lg drop-shadow-lg hover:bg-gradient-to-r from-white to-purple-200 mx-6 justify-between hover:scale-105 cursor-default">
-            
+<div id="categories-container" class="{`bg-${color}-200`} flex  mt-1 mb-3 p-3 h-[5.5rem] align-middle rounded-lg drop-shadow-lg hover:bg-gradient-to-r from-white to-purple-200 mx-6 justify-between hover:scale-105 cursor-default">
+
     <div class="ml-3 mt-1">
         <!-- category title -->
-        <p id="task-title" class="{`text-${category.color}-800`} font-bold text-lg">{category.category_title}</p>
+        <p id="task-title" class="{`text-${color}-800`} font-bold text-lg">{categoryTitle}</p>
 
         <div class="flex mt-1">
             <!-- Group -->
-            <p class="text-xs">{category.task_amount} Groups</p>
+            <p class="text-xs">{groupAmount} Groups</p>
                 
             <!-- Task -->
-            <p class="text-xs ml-3">{category.task_amount} Tasks</p>
+            <p class="text-xs ml-3">{taskAmount} Tasks</p>
         </div>
     </div>
 

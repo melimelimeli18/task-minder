@@ -1,5 +1,6 @@
 
 <script>
+    import '../../styles/global.css';
     import Navbar from "../../components/NavBar.svelte";
 
 </script>

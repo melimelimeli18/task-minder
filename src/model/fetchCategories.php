@@ -1,25 +1,10 @@
 <?php
-// To do : make the one categories in database appear on client side.
-
 require_once __DIR__ . '/../config/database.php';
-//https://www.geeksforgeeks.org/how-to-fetch-data-from-localserver-database-and-display-on-html-table-using-php/
 
-// Allow from any origin
 header('Access-Control-Allow-Origin: *');// Allow methods POST and GET
 header('Access-Control-Allow-Methods: POST, GET');// Allow headers Content-Type (required for POST requests)
 header('Access-Control-Allow-Headers: Content-Type');
-// header('Content-Type: application/json'); // Ensure the response is JSON
 header('Content-Type: application/JSON'); // Ensure the response is JSON
-
-// $sql = "SELECT * FROM categories";
-// $result = $conn->query($conn, $sql);
-
-// $categories = array();
-// if ($result->num_rows > 0) {
-//     while($row = $result->fetch_assoc()) {
-//         $categories[] = $row;
-//     }
-// }
 
 //API fetch data from database
 $response = array();
@@ -44,6 +29,4 @@ if($conn){
     }
 }
 
-
 $conn->close();
-// echo json_encode($categories);

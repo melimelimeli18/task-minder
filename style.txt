@@ -28,3 +28,4 @@ I should go to backend RAGHH
 20/06/24 = Add new category modal
 25/07/24 = Data succesfully been fetching to http://localhost/task-minder/src/model/fetchCategories.php, but yet the client side
 28/07/24 = Fetch data from API for Category component 
+30/07/24 = Fix redirect page when adding new category, Fix style problem on all page

@@ -2,27 +2,23 @@
     import IconCross from "../assets/icon-cross.svelte";
     import { Radio, Input, Modal, Label, Helper, Button, Checkbox, A, Datepicker } from 'flowbite-svelte';
     import { createEventDispatcher } from 'svelte';
-    import type { category } from '../utils/interfaces'; 
-    // import Apa from '../model/addCategory.php'
-    document.addEventListener("DOMContentLoaded", function(event) {
-    });
-
+    
     const dispatch = createEventDispatcher();
 
+    // Closing modal
     function closeModal() {
         dispatch('close');
     }
 
-
-
-    
-    // /model/addCategory.php
-    // ../../model/addCategory.php
+    //AJAX (Page doesn't need to be refreshed when need to fetch new data from API)
 </script>
 
-<!-- <form on:submit={handleSubmit} id="form" class="z-50 centered-axis-xy w-[80%] h-content absolute bg-white rounded-lg justify-center px-6 py-4 drop-shadow-lg" autocomplete="off"> -->
-<!-- <form action="/src/model/addCategory.php" method="POST" id="form" class="z-50 centered-axis-xy w-[80%] h-content absolute bg-white rounded-lg justify-center px-6 py-4 drop-shadow-lg" autocomplete="off"> -->
-<form action="http://localhost/task-minder/src/model/addCategory.php" method="POST" id="form" class="z-50 centered-axis-xy w-[80%] h-content absolute bg-white rounded-lg justify-center px-6 py-4 drop-shadow-lg" autocomplete="off">
+<form 
+    action="http://localhost/task-minder/src/model/addCategory.php" 
+    method="POST"
+    class="z-50 centered-axis-xy w-[80%] h-content absolute bg-white rounded-lg justify-center px-6 py-4 drop-shadow-lg" 
+    autocomplete="off">
+
     <!-- Close Button -->
     <button on:click={closeModal} type="button" id="close-button">
         <label for="close-button">
@@ -37,10 +33,16 @@
 
     <Label class="space-y-2 mt-9">
         <span class="task-title">Category Title</span>
-        <Input id="task-title-input" name="category-title" required type="text" value="" placeholder="Enter category name..." size="md" class="input-field focus:ring-violet-500 focus:border-violet-500 "/>
+        <Input 
+            name="category-title" 
+            required 
+            type="text" 
+            placeholder="Enter category name..." 
+            size="md" 
+            class="input-field focus:ring-violet-500 focus:border-violet-500 "/>
     </Label>
 
-    <hr class="fill-current border-[#9940FA] border-solid border-1 my-1 mt-5">fe
+    <hr class="fill-current border-[#9940FA] border-solid border-1 my-1 mt-5">
     
     <!-- Color Input -->
     <Label class="space-y-2 mt-3">
@@ -103,6 +105,7 @@
     <div class="flex justify-end mt-9 mb-4">
         <button on:click={closeModal} id="cancel-add-category-button" class="mr-9 text-gray-400 hover:text-gray-600 focus:text-gray-600 " type="button">Cancel</button>
         <!-- <button id="cancel-add-task-button" class="mr-9 text-gray-400 hover:text-gray-600 focus:text-gray-600 " type="button">Cancel</button> -->
+
         <button type="submit" name="submit" id="add-task-button" class="px-10 bg-violet-500 hover:bg-violet-800 focus:ring-violet-100">Add</button>
     </div>
 </form>

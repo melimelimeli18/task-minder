@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__ . './../config/database.php';
 
 // Allow from any origin
@@ -10,29 +9,24 @@ header('Content-Type: application/json'); // Ensure the response is JSON
 
 $response = ['success' => false, 'message' => 'Unknown error'];
 
-
 if(isset($_POST["submit"])){
+    header('Location: http://localhost:5173/MyCategory');
     $category_title = $_POST['category-title'];
     $color = $_POST['color'];
   
     $query = mysqli_query($conn,"INSERT INTO categories (category_title,color) VALUES('$category_title', '$color')");
-    // $query = "INSERT INTO categories VALUES('$category_title')";
-    // mysqli_query($conn,$query);
+
+    // If category succesfully been add.
     if($query){
-        // if working
-        // echo
-        // "<script> alert('Data Inserted Successfully'); </script>";
         $response['success'] = true;
         $response['message'] = 'Data inserted successfully';
     }else{
         echo
-        // "<script> alert('ayo dicoba lagi'); </script>";
         $response['message'] = 'Error inserting data: ' . mysqli_error($conn);
-
     }
 }else{
     echo
-    // "<script> alert('ngga bisa ke submit'); </script>";
     $response['message'] = 'Required POST data is missing';
 }
+
 $conn->close();

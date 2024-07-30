@@ -1,18 +1,17 @@
 <script lang="ts">
     import { onMount } from 'svelte';
+    import '../../styles/global.css';
     import Navbar from "../../components/NavBar.svelte";
     import CardAddNewCategory from "../../components/CardAddNewCategory.svelte";
     import IconPlus from "../../assets/icon-plus.svelte";
-    import IconOpen from "../../assets/icon-open.svelte";
     import CardCategoryInfo from "../../components/CardCategoryInfo.svelte";
-    import Category from "../../components/CardCategoryInfo.svelte";
-
+    import CardAddNewTask from '../../components/CardAddNewTask.svelte';
 
     let showModal = false;
+
     function closeModal() {
         showModal = false;
     }
-
 
     let categories: Category[] = [];
 
@@ -31,6 +30,8 @@
             const response = await fetch('http://localhost/task-minder/src/model/fetchCategories.php');
             const data: Category[] = await response.json();
             categories = data;
+
+            return data;
         } catch (error) {
             console.error('Error fetching data:', error); 
         }
@@ -43,15 +44,12 @@
 </script>
 
 {#if showModal}
-    <!-- <CardAddNewCategory on:close={closeModal}/> -->
-    <!-- <CardAddNewCategory on:categoryAdded={handleCategoryAdded} /> -->
+    <!-- <CardAddNewCategory on:submit={handleSubmit} on:close={closeModal}/> -->
     <CardAddNewCategory on:close={closeModal}/>
     <div class="z-30 absolute w-screen h-screen bg-black opacity-50"></div>
 {/if}
 
-<!-- <CardAddNewCategory /> -->
 <Navbar />
-<!-- ADD MODAL -->
 
 <main class="mx-8 py-20">
     
@@ -59,7 +57,7 @@
     <h1 class="font-bold text-2xl underline-offset-4">My Category</h1>
     
     <!-- Content box -->
-    <div class="flex flex-col flex-1 mt-8 rounded-xl h-full bg-[#FBF4FE]">
+    <div class="flex flex-col flex-1 mt-8 rounded-xl h-screen bg-[#FBF4FE]">
         <div class="mb-8"></div>
         
         <!-- Add New Category -->

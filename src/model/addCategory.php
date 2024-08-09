@@ -12,9 +12,8 @@ $response = ['success' => false, 'message' => 'Unknown error'];
 if(isset($_POST["submit"])){
     header('Location: http://localhost:5173/MyCategory');
     $category_title = $_POST['category-title'];
-    $color = $_POST['color'];
   
-    $query = mysqli_query($conn,"INSERT INTO categories (category_title,color) VALUES('$category_title', '$color')");
+    $query = mysqli_query($conn,"INSERT INTO categories (category_title) VALUES('$category_title')");
 
     // If category succesfully been add.
     if($query){
@@ -29,4 +28,5 @@ if(isset($_POST["submit"])){
     $response['message'] = 'Required POST data is missing';
 }
 
+echo json_encode($response);
 $conn->close();

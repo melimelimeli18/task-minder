@@ -9,9 +9,7 @@ RUN in local server = npm run dev
 
 ====
 Note 
-1. Category component style isn't applied to all
-2. When adding new category, it directed to a blank page
-3. Everytime when refreshing a page, the style broken, except the home one. 
+1. 
 
 ====
 PROJECT :
@@ -29,3 +27,5 @@ I should go to backend RAGHH
 25/07/24 = Data succesfully been fetching to http://localhost/task-minder/src/model/fetchCategories.php, but yet the client side
 28/07/24 = Fetch data from API for Category component 
 30/07/24 = Fix redirect page when adding new category, Fix style problem on all page
+01/08/24 = delete choose color feature on add category
+09/08/24 = Prevent data have multiple submission. Have a pending mode on submit 

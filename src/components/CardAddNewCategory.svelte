@@ -1,7 +1,9 @@
 <script lang="ts">
+    import { onMount } from 'svelte';
     import IconCross from "../assets/icon-cross.svelte";
     import { Radio, Input, Modal, Label, Helper, Button, Checkbox, A, Datepicker } from 'flowbite-svelte';
     import { createEventDispatcher } from 'svelte';
+    import type { FormEventHandler } from "svelte/elements";
     
     const dispatch = createEventDispatcher();
 
@@ -10,14 +12,72 @@
         dispatch('close');
     }
 
-    //AJAX (Page doesn't need to be refreshed when need to fetch new data from API)
+    //Prevent data being submitted many times in one click 
+    let loading = false;
+    async function submitForm(event: Event) {
+        event.preventDefault();
+        loading = true;
+
+        const target = event.target;
+        if (!(target instanceof HTMLFormElement)) {
+            console.error('Event target is not a form');
+            loading = false;
+            return;
+        }
+
+        const form = target;
+        const formData = new FormData(form);
+        formData.append('submit', 'true');
+
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: formData
+            });
+
+            const text = await response.text();
+            console.log('Response:', text);  // Log the raw response
+
+            let data;
+            try {
+                data = JSON.parse(text);
+            } catch (error) {
+                console.error('Failed to parse JSON:', error);
+                // Assume success if we can't parse JSON
+                data = { success: true };
+            }
+
+            if (data.success) {
+                dispatch('submit');
+                dispatch('close');
+                window.location.href = 'http://localhost:5173/MyCategory';  // Redirect after successful submission
+            } else {
+                console.error('Submission failed:', data.message);
+                // Handle error (e.g., show error message to user)
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        } finally {
+            loading = false;
+        }
+    }
+
+    //Prevent null value (category title) be submitted
+
+
+ 
+    
 </script>
+<!-- on:submit|preventDefault={submitForm} -->
 
 <form 
     action="http://localhost/task-minder/src/model/addCategory.php" 
     method="POST"
     class="z-50 centered-axis-xy w-[80%] h-content absolute bg-white rounded-lg justify-center px-6 py-4 drop-shadow-lg" 
-    autocomplete="off">
+    autocomplete="off"
+    id="addCategoryForm"
+    on:submit={submitForm}
+    >
 
     <!-- Close Button -->
     <button on:click={closeModal} type="button" id="close-button">
@@ -39,74 +99,31 @@
             type="text" 
             placeholder="Enter category name..." 
             size="md" 
+            disabled={loading}
             class="input-field focus:ring-violet-500 focus:border-violet-500 "/>
     </Label>
 
-    <hr class="fill-current border-[#9940FA] border-solid border-1 my-1 mt-5">
-    
-    <!-- Color Input -->
-    <Label class="space-y-2 mt-3">
-        <span>Color</span>
-
-        <!-- BORDER DOESNT WORKING FIX THIS -->
-        <div class="flex flex-wrap gap-1.5">
-            <!-- pink -->
-            <input type="radio" name="color" required value="pink" class="hidden peer/pink" id="pink" checked>
-            <label for="pink" class="bg-pink-300 size-6 rounded-full items-center peer-checked/pink:border-[2px] peer-checked/pink:border-purple-600 peer-checked/pink:border-solid hover:scale-125"></label>
-
-            <!-- red -->
-            <input type="radio" name="color" value="red" class="hidden peer/red" id="red">
-            <label for="red" class="bg-red-600 size-6 rounded-full items-center peer-checked/red:border-[2px] peer-checked/red:border-purple-600 peer-checked/red:border-solid hover:scale-125"></label>
-
-            <!-- orange -->
-            <input type="radio" name="color" value="orange" class="hidden peer/orange" id="orange">
-            <label for="orange" class="bg-orange-400 size-6 rounded-full items-center peer-checked/orange:border-[2px] peer-checked/orange:border-purple-600 peer-checked/orange:border-solid hover:scale-125"></label>
-
-            <!-- yellow -->
-            <input type="radio" name="color" value="yellow" class="hidden peer/yellow" id="yellow">
-            <label for="yellow" class="bg-yellow-300 size-6 rounded-full items-center peer-checked/yellow:border-[2px] peer-checked/yellow:border-purple-600 peer-checked/yellow:border-solid hover:scale-125"></label>
-
-            <!-- lime -->
-            <input type="radio" name="color" value="lime" class="hidden peer/lime" id="lime">
-            <label for="lime" class="bg-lime-400 size-6 rounded-full items-center peer-checked/lime:border-[2px] peer-checked/lime:border-purple-600 peer-checked/lime:border-solid hover:scale-125"></label>
-            
-            <!-- green -->
-            <input type="radio" name="color" value="green" class="hidden peer/green" id="green">
-            <label for="green" class="bg-green-500 size-6 rounded-full items-center peer-checked/green:border-[2px] peer-checked/green:border-purple-600 peer-checked/green:border-solid hover:scale-125"></label>
-
-            <!-- cyan -->
-            <input type="radio" name="color" value="cyan" class="hidden peer/cyan" id="cyan">
-            <label for="cyan" class="bg-cyan-400 size-6 rounded-full items-center peer-checked/cyan:border-[2px] peer-checked/cyan:border-purple-600 peer-checked/cyan:border-solid hover:scale-125"></label>
-
-            <!-- blue -->
-            <input type="radio" name="color" value="blue" class="hidden peer/blue" id="blue">
-            <label for="blue" class="bg-blue-600 size-6 rounded-full items-center peer-checked/blue:border-[2px] peer-checked/blue:border-purple-600 peer-checked/blue:border-solid hover:scale-125"></label>
-
-            <!-- purple -->
-            <input type="radio" name="color" value="purple" class="hidden peer/purple" id="purple">
-            <label for="purple" class="bg-purple-500 size-6 rounded-full items-center peer-checked/purple:border-[2px] peer-checked/purple:border-purple-600 peer-checked/purple:border-solid hover:scale-125"></label>
-            
-            <!-- gray -->
-            <input type="radio" name="color" value="gray" class="hidden peer/gray" id="gray">
-            <label for="gray" class="bg-gray-400 size-6 rounded-full items-center peer-checked/gray:border-[2px] peer-checked/gray:border-purple-600 peer-checked/gray:border-solid hover:scale-125"></label>
-
-            <!-- black (zinc)-->
-            <input type="radio" name="color" value="zinc" class="hidden peer/black" id="black">
-            <label for="black" class="bg-black size-6 rounded-full items-center peer-checked/black:border-[2px] peer-checked/black:border-purple-600 peer-checked/black:border-solid hover:scale-125"></label>
-          
-            <!-- white (stone)-->
-            <input type="radio" name="color" value="stone" class="hidden peer/white" id="white">
-            <label for="white" class="bg-white size-6 rounded-full items-center shadow-md drop-shadow-lg peer-checked/white:border-[2px] peer-checked/white:border-purple-600 peer-checked/white:border-solid hover:scale-125"></label>
-          
-        </div>
-    </Label>
-    
-    <!-- Cancel Button, Submit Button -->    
     <div class="flex justify-end mt-9 mb-4">
-        <button on:click={closeModal} id="cancel-add-category-button" class="mr-9 text-gray-400 hover:text-gray-600 focus:text-gray-600 " type="button">Cancel</button>
+
+        <!-- cancel btn -->
+        <button 
+            on:click={closeModal} 
+            class="mr-9 text-gray-400 hover:text-gray-600 focus:text-gray-600 " 
+            type="button"
+            disabled={loading}
+            >
+            Cancel 
+        </button>
         <!-- <button id="cancel-add-task-button" class="mr-9 text-gray-400 hover:text-gray-600 focus:text-gray-600 " type="button">Cancel</button> -->
 
-        <button type="submit" name="submit" id="add-task-button" class="px-10 bg-violet-500 hover:bg-violet-800 focus:ring-violet-100">Add</button>
+        <!-- submit btn -->
+        <Button 
+            type="submit"  
+            class="px-10 bg-violet-500 hover:bg-violet-800 focus:ring-violet-100 "
+            disabled={loading}
+            >
+            {loading ? 'Add' : 'Add'}
+        </Button>
     </div>
 </form>
 

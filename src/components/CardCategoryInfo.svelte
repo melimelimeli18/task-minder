@@ -2,17 +2,18 @@
     import IconOpen from "../assets/icon-open.svelte";
 
     export let categoryTitle;
-    export let color;
     export let taskAmount;
     export let groupAmount;
 
 </script>
 
-<div id="categories-container" class="bg-white flex  mt-1 mb-3 p-3 h-[5.5rem] align-middle rounded-lg drop-shadow-lg hover:bg-gradient-to-r from-white to-purple-200 mx-6 justify-between hover:scale-105 cursor-default">
+<div 
+class="bg-white flex  mt-1 mb-3 p-3 h-[5.5rem] align-middle rounded-lg drop-shadow-lg 
+        hover:bg-gradient-to-r from-white to-purple-200 mx-6 justify-between hover:scale-105 cursor-default">
 
     <div class="ml-3 mt-1">
         <!-- category title -->
-        <p id="task-title" class="{`text-${color}-800`} font-bold text-lg">{categoryTitle}</p>
+        <p id="task-title" class="text-black font-bold text-lg">{categoryTitle}</p>
 
         <div class="flex mt-1">
             <!-- Group -->

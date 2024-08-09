@@ -16,7 +16,6 @@ if($conn){
         $i = 0;
         while($row = mysqli_fetch_assoc($result)){
             $response[$i]['category_title'] = $row ['category_title'];
-            $response[$i]['color'] = $row ['color'];
             $response[$i]['group_amount'] = $row ['group_amount'];
             $response[$i]['task_amount'] = $row ['task_amount'];
             $response[$i]['created_at'] = $row ['created_at'];
